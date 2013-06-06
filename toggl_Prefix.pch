@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'NoodleStickyRowTableViewTest' target in the 'NoodleStickyRowTableViewTest' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

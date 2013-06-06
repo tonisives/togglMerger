@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A2FA810175F94F200797F15 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA801175F94F200797F15 /* NSString+Additions.m */; };
+		1A2FA811175F94F200797F15 /* CAPWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA803175F94F200797F15 /* CAPWebService.m */; };
+		1A2FA812175F94F200797F15 /* CAPWebServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA805175F94F200797F15 /* CAPWebServiceRequest.m */; };
+		1A2FA813175F94F200797F15 /* CAPBaseTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA808175F94F200797F15 /* CAPBaseTransaction.m */; };
+		1A2FA814175F94F200797F15 /* CAPProjectTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA80A175F94F200797F15 /* CAPProjectTransaction.m */; };
+		1A2FA815175F94F200797F15 /* CAPTimeEntriesTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA80C175F94F200797F15 /* CAPTimeEntriesTransaction.m */; };
+		1A2FA816175F94F200797F15 /* CAPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA80F175F94F200797F15 /* CAPUtils.m */; };
+		1A2FA819175F950500797F15 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2FA818175F950500797F15 /* NSDate-Utilities.m */; };
+		1A2FA81B175F95F400797F15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2FA81A175F95F400797F15 /* SystemConfiguration.framework */; };
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		32ED3E5E10420D1300B6E636 /* NSImage-NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5710420D1300B6E636 /* NSImage-NoodleExtensions.m */; };
+		32ED3E5F10420D1300B6E636 /* NoodleStickyRowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5910420D1300B6E636 /* NoodleStickyRowTableView.m */; };
+		32ED3E6010420D1300B6E636 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5B10420D1300B6E636 /* Controller.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1A2FA800175F94F200797F15 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
+		1A2FA801175F94F200797F15 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		1A2FA802175F94F200797F15 /* CAPWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPWebService.h; sourceTree = "<group>"; };
+		1A2FA803175F94F200797F15 /* CAPWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPWebService.m; sourceTree = "<group>"; };
+		1A2FA804175F94F200797F15 /* CAPWebServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPWebServiceRequest.h; sourceTree = "<group>"; };
+		1A2FA805175F94F200797F15 /* CAPWebServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPWebServiceRequest.m; sourceTree = "<group>"; };
+		1A2FA807175F94F200797F15 /* CAPBaseTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPBaseTransaction.h; sourceTree = "<group>"; };
+		1A2FA808175F94F200797F15 /* CAPBaseTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPBaseTransaction.m; sourceTree = "<group>"; };
+		1A2FA809175F94F200797F15 /* CAPProjectTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPProjectTransaction.h; sourceTree = "<group>"; };
+		1A2FA80A175F94F200797F15 /* CAPProjectTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPProjectTransaction.m; sourceTree = "<group>"; };
+		1A2FA80B175F94F200797F15 /* CAPTimeEntriesTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPTimeEntriesTransaction.h; sourceTree = "<group>"; };
+		1A2FA80C175F94F200797F15 /* CAPTimeEntriesTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPTimeEntriesTransaction.m; sourceTree = "<group>"; };
+		1A2FA80E175F94F200797F15 /* CAPUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPUtils.h; sourceTree = "<group>"; };
+		1A2FA80F175F94F200797F15 /* CAPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPUtils.m; sourceTree = "<group>"; };
+		1A2FA817175F950500797F15 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
+		1A2FA818175F950500797F15 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
+		1A2FA81A175F95F400797F15 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* toggl_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = toggl_Prefix.pch; sourceTree = "<group>"; };
+		32ED3E5610420D1300B6E636 /* NSImage-NoodleExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage-NoodleExtensions.h"; sourceTree = "<group>"; };
+		32ED3E5710420D1300B6E636 /* NSImage-NoodleExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage-NoodleExtensions.m"; sourceTree = "<group>"; };
+		32ED3E5810420D1300B6E636 /* NoodleStickyRowTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoodleStickyRowTableView.h; sourceTree = "<group>"; };
+		32ED3E5910420D1300B6E636 /* NoodleStickyRowTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoodleStickyRowTableView.m; sourceTree = "<group>"; };
+		32ED3E5A10420D1300B6E636 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
+		32ED3E5B10420D1300B6E636 /* Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Controller.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* toggl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toggl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A2FA81B175F95F400797F15 /* SystemConfiguration.framework in Frameworks */,
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA7FE175F94F200797F15 /* Web */,
+				1A2FA817175F950500797F15 /* NSDate-Utilities.h */,
+				1A2FA818175F950500797F15 /* NSDate-Utilities.m */,
+				32ED3E5610420D1300B6E636 /* NSImage-NoodleExtensions.h */,
+				32ED3E5710420D1300B6E636 /* NSImage-NoodleExtensions.m */,
+				32ED3E5810420D1300B6E636 /* NoodleStickyRowTableView.h */,
+				32ED3E5910420D1300B6E636 /* NoodleStickyRowTableView.m */,
+				32ED3E5A10420D1300B6E636 /* Controller.h */,
+				32ED3E5B10420D1300B6E636 /* Controller.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* toggl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A2FA7FE175F94F200797F15 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA7FF175F94F200797F15 /* Additions */,
+				1A2FA802175F94F200797F15 /* CAPWebService.h */,
+				1A2FA803175F94F200797F15 /* CAPWebService.m */,
+				1A2FA804175F94F200797F15 /* CAPWebServiceRequest.h */,
+				1A2FA805175F94F200797F15 /* CAPWebServiceRequest.m */,
+				1A2FA806175F94F200797F15 /* Transactions */,
+				1A2FA80D175F94F200797F15 /* Utils */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		1A2FA7FF175F94F200797F15 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA800175F94F200797F15 /* NSString+Additions.h */,
+				1A2FA801175F94F200797F15 /* NSString+Additions.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		1A2FA806175F94F200797F15 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA807175F94F200797F15 /* CAPBaseTransaction.h */,
+				1A2FA808175F94F200797F15 /* CAPBaseTransaction.m */,
+				1A2FA809175F94F200797F15 /* CAPProjectTransaction.h */,
+				1A2FA80A175F94F200797F15 /* CAPProjectTransaction.m */,
+				1A2FA80B175F94F200797F15 /* CAPTimeEntriesTransaction.h */,
+				1A2FA80C175F94F200797F15 /* CAPTimeEntriesTransaction.m */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		1A2FA80D175F94F200797F15 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA80E175F94F200797F15 /* CAPUtils.h */,
+				1A2FA80F175F94F200797F15 /* CAPUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* NoodleStickyRowTableViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = NoodleStickyRowTableViewTest;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* toggl_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A2FA81A175F95F400797F15 /* SystemConfiguration.framework */,
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* toggl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "toggl" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = toggl;
+			productInstallPath = "$(HOME)/Applications";
+			productName = NoodleStickyRowTableViewTest;
+			productReference = 8D1107320486CEB800E47090 /* toggl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "toggl" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* NoodleStickyRowTableViewTest */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* toggl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				32ED3E5E10420D1300B6E636 /* NSImage-NoodleExtensions.m in Sources */,
+				32ED3E5F10420D1300B6E636 /* NoodleStickyRowTableView.m in Sources */,
+				32ED3E6010420D1300B6E636 /* Controller.m in Sources */,
+				1A2FA810175F94F200797F15 /* NSString+Additions.m in Sources */,
+				1A2FA811175F94F200797F15 /* CAPWebService.m in Sources */,
+				1A2FA812175F94F200797F15 /* CAPWebServiceRequest.m in Sources */,
+				1A2FA813175F94F200797F15 /* CAPBaseTransaction.m in Sources */,
+				1A2FA814175F94F200797F15 /* CAPProjectTransaction.m in Sources */,
+				1A2FA815175F94F200797F15 /* CAPTimeEntriesTransaction.m in Sources */,
+				1A2FA816175F94F200797F15 /* CAPUtils.m in Sources */,
+				1A2FA819175F950500797F15 /* NSDate-Utilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = toggl_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = toggl;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = toggl_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = toggl;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = NO;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CFLAGS[arch=i386]" = "-fsingle-precision-constant";
+				"OTHER_CFLAGS[arch=ppc]" = "-fsingle-precision-constant";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_PROTOTYPE_CONVERSION = NO;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				"OTHER_CFLAGS[arch=i386]" = "-fsingle-precision-constant";
+				"OTHER_CFLAGS[arch=ppc]" = "-fsingle-precision-constant";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "toggl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "toggl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
