@@ -31,6 +31,7 @@
 #import "NSDate-Utilities.h"
 
 NSString *const kUserStorageKey = @"user";
+NSString *const kPassStorageKey = @"pass";
 
 @implementation Controller
 
@@ -38,6 +39,11 @@ NSString *const kUserStorageKey = @"user";
 {
     if ([[NSUserDefaults standardUserDefaults] stringForKey:kUserStorageKey]) {
         _userTextField.stringValue = [[NSUserDefaults standardUserDefaults] stringForKey:kUserStorageKey];
+    }
+
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:kPassStorageKey]) {
+        _passTextField.stringValue = [[NSUserDefaults standardUserDefaults] stringForKey:kPassStorageKey];
+        _rememberPass.state = NSOnState;
     }
 }
 
@@ -47,19 +53,23 @@ NSString *const kUserStorageKey = @"user";
     _username = _userTextField.stringValue;
     
     _progressLabel.stringValue = @"";
+    _goButton.title = @"...";
     
-    [_goButton setTitle:@"go"];
-    
-    _mergeRequest = _checkBox.state == NSOnState;
-    
-    [[NSUserDefaults standardUserDefaults] setValue:_userTextField.stringValue forKey:kUserStorageKey];
-    
+    _mergeRequest = (_checkBox.state == NSOnState);
+
+        // Saves the username and if needed - password also
+    [[NSUserDefaults standardUserDefaults] setValue:_username forKey:kUserStorageKey];
+
+    if (_rememberPass.state == NSOnState) {
+        [[NSUserDefaults standardUserDefaults] setValue:_password forKey:kPassStorageKey];
+    }
+
+        // And makes the request thingies
     NSInteger day = [[NSDate date] weekday];
-    
     NSDate *startDate = [[NSDate dateWithDaysBeforeNow:day] dateAtStartOfDay];
+    NSDateFormatter *formatter = [NSDateFormatter new];
     
-    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'"];
+    formatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
     
     NSString *startString = [formatter stringFromDate:startDate];
     NSString *endString = [formatter stringFromDate:[NSDate date]];
@@ -69,23 +79,26 @@ NSString *const kUserStorageKey = @"user";
                               @"start" : startString,
                               @"end" : endString};
     
-    [[CAPWebService sharedWebService] makeRequestForTarget:self
-                                               requestType:kCAPRequestTypeTimeEntries
-                                               withPayLoad:payLoad
-                                                usingBlock:^(id responseData, NSError *error) {
-                                                    if (!error) {
-                                                        [self gotTimes:responseData];
-                                                    }
-                                                    else {
-                                                        [_goButton setTitle:@"error"];
-                                                    }
-                                                }];
-    
+    [[CAPWebService sharedWebService] makeRequestForTarget:self requestType:kCAPRequestTypeTimeEntries withPayLoad:payLoad usingBlock:^(id responseData, NSError *error) {
+        if (!error) {
+            [self gotTimes:responseData];
+
+            _goButton.title = @"refresh";
+        }
+        else {
+            _goButton.title = @"error";
+        }
+    }];
 }
 
-- (BOOL)_isHeader:(NSInteger)rowIndex
+- (BOOL)isHeader:(NSInteger)rowIndex
 {
     return [_timesAndHeaders[rowIndex] isKindOfClass:[NSDate class]];
+}
+
+- (void)wantedDecimalsCountChanged:(NSStepper *)stepper
+{
+    [_tableView reloadData];
 }
 
 #pragma mark NSTableDataSource methods
@@ -97,25 +110,43 @@ NSString *const kUserStorageKey = @"user";
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"EEEE, dd. MMMM"];
-
     id time = _timesAndHeaders[rowIndex];
-              
+
     if ([time isKindOfClass:[NSDate class]]) {
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        formatter.dateFormat = @"EEEE, dd. MMMM";
+
         return [formatter stringFromDate:_timesAndHeaders[rowIndex]];
     }
+    else if ([time[@"duration"] doubleValue] < 0.0f) {
+        return [NSString stringWithFormat:@"... %@", time[@"projectName"]];
+    }
     else {
-        return [NSString stringWithFormat:@"%.02f %@ - %@ ", [time[@"duration"] floatValue] / (60 * 60),
-                (time[@"projectName"] == [NSNull null] ? @"(no project)" : time[@"projectName"]),
-                (time[@"description"] == [NSNull null] ? @"(no description)" : time[@"description"])];
-        
+        NSNumberFormatter *formatter = [NSNumberFormatter new];
+        NSString *numberOfDecimals = @"";
+
+        for (int i = 0; i <= _stepper.integerValue; i++) {
+            if (i == 1) {
+                numberOfDecimals = @".0";
+            }
+            else if (i > 1) {
+                numberOfDecimals = [NSString stringWithFormat:@"%@0", numberOfDecimals];
+            }
+        }
+
+        formatter.format = [NSString stringWithFormat:@"###0%@", numberOfDecimals];
+
+        return [NSString stringWithFormat:@"%@ %@ %@ %@ ",
+                [formatter stringFromNumber:@([time[@"duration"] doubleValue] / (60.0f * 60.0f))],
+                ((time[@"projectName"] == [NSNull null]) ? @"" : time[@"projectName"]),
+                ((time[@"description"] == [NSNull null]) ? @"" : @"-"),
+                ((time[@"description"] == [NSNull null]) ? @"" : time[@"description"])];
     }
 }
 
 - (BOOL)tableView:(NSTableView *)tableView isGroupRow:(NSInteger)row
 {
-	return [self _isHeader:row];
+	return [self isHeader:row];
 }
 
 #pragma mark Private methods
@@ -123,35 +154,33 @@ NSString *const kUserStorageKey = @"user";
 - (void)gotTimes:(NSArray *)array
 {
     NSMutableArray *timesAndHeadersBuilder = [NSMutableArray array];
+    NSDateFormatter *formatter = [NSDateFormatter new];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZ"];
+    formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZZZZ";
     
     __block NSDate *currentDayDate;
     
     [array enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
         NSDate *startDate = [formatter dateFromString:obj[@"start"]];
         NSDate *endDate = [formatter dateFromString:obj[@"stop"]];
+        long pID = [obj[@"pid"] longValue];
         
         if (idx == 0) {
             [timesAndHeadersBuilder addObject:startDate];
             currentDayDate = startDate;
         }
-        
-        long pID = [obj[@"pid"] longValue];
 
-        NSMutableDictionary *time = @{
-                                      @"start" : startDate,
-                                      @"end" : endDate ? endDate : [NSNull null],
+        NSMutableDictionary *time = @{@"start" : startDate,
+                                      @"end" : ((endDate) ? endDate : [NSNull null]),
                                       @"duration" : @([obj[@"duration"] integerValue]),
-                                      @"pID" : pID == 0 ? [NSNull null] : @(pID),
+                                      @"pID" : ((pID == 0) ? [NSNull null] : @(pID)),
                                       @"projectName" : [NSNull null],
-                                      @"description" : obj[@"description"] ? obj[@"description"] : [NSNull null]
-                                      }.mutableCopy; //to add project name later
+                                      @"description" : ((obj[@"description"]) ? obj[@"description"] : [NSNull null])}.mutableCopy; //to add project name later
         
         if (currentDayDate.weekday != startDate.weekday) {
             [timesAndHeadersBuilder addObject:startDate];
         }
+
         [timesAndHeadersBuilder addObject:time];        
         currentDayDate = startDate;
     }];
@@ -173,7 +202,7 @@ NSString *const kUserStorageKey = @"user";
     
     [_timesAndHeaders enumerateObjectsUsingBlock:^(id time, NSUInteger idx, BOOL *stop) {
         if (![time isKindOfClass:[NSDate class]]) {
-            if (![pIDs containsObject:time[@"pID"]] && time[@"pID"] != [NSNull null]) {
+            if (![pIDs containsObject:time[@"pID"]] && (time[@"pID"] != [NSNull null])) {
                 [pIDs addObject:time[@"pID"]];
             }
         }
@@ -185,23 +214,23 @@ NSString *const kUserStorageKey = @"user";
         NSDictionary *payLoad = @{@"pass" : _passTextField.stringValue,
                                   @"user" : _userTextField.stringValue,
                                   @"pID" : [pIDs[idx] stringValue]};
-        
-        
-        [[CAPWebService sharedWebService] makeRequestForTarget:self
-                                                   requestType:kCAPRequestTypeProjectDetails
-                                                   withPayLoad:payLoad
-                                                    usingBlock:^(id responseData, NSError *error) {
-                                                        if (!error) {
-                                                            [projectsBuilder addObject:responseData];
-                                                        }
-                                                        else {
-                                                            [_goButton setTitle:@"error"];
-                                                        }
-                                                        
-                                                        if (projectsBuilder.count == pIDs.count) {
-                                                            [self didGetProjects:projectsBuilder];
-                                                        }
-                                                    }];
+
+        _goButton.title = @"...";
+
+        [[CAPWebService sharedWebService] makeRequestForTarget:self requestType:kCAPRequestTypeProjectDetails withPayLoad:payLoad usingBlock:^(id responseData, NSError *error) {
+            if (!error) {
+                [projectsBuilder addObject:responseData];
+
+                _goButton.title = @"refresh";
+            }
+            else {
+                _goButton.title = @"error";
+            }
+
+            if (projectsBuilder.count == pIDs.count) {
+                [self didGetProjects:projectsBuilder];
+            }
+        }];
     }];
 }
 
@@ -217,7 +246,8 @@ NSString *const kUserStorageKey = @"user";
                     NSNumber *pID = project[@"data"][@"id"];
                     
                     if ([project[@"data"][@"billable"] boolValue] && !set) {
-                        totalDuration += [time[@"duration"] integerValue] / (60.0f * 60.0f);
+                        CGFloat duration = [time[@"duration"] integerValue] / (60.0f * 60.0f);
+                        totalDuration += (duration > 0.0f) ? duration : 0.0f;
                         set = YES;
                     }
                     
@@ -230,8 +260,8 @@ NSString *const kUserStorageKey = @"user";
     }];
     
     _progressLabel.stringValue = [NSString stringWithFormat:@"total billable: %.02f", totalDuration];
-
     _projects = projects;
+    
     [_tableView reloadData];
 }
 

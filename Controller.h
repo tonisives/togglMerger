@@ -37,6 +37,10 @@
     IBOutlet NSButton *_goButton;
     
     IBOutlet NSButton *_checkBox;
+    IBOutlet NSButton *_rememberPass;
+
+    IBOutlet NSStepper *_stepper;
+    
     NSArray	*_timesAndHeaders;
     NSArray *_projects;
     NSString *_password;
@@ -44,5 +48,7 @@
     
     BOOL _mergeRequest;
 }
+
+- (IBAction)wantedDecimalsCountChanged:(NSStepper *)stepper;
 
 @end

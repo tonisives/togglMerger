@@ -8,7 +8,7 @@
 
 #import "CAPWebServiceRequest.h"
 
-const BOOL kLoggingEnabled = YES;
+const BOOL kLoggingEnabled = NO;
 
 @interface CAPWebService () {
     NSMutableArray *_requests;
