@@ -96,7 +96,7 @@ NSString *const kPassStorageKey = @"pass";
     return [_timesAndHeaders[rowIndex] isKindOfClass:[NSDate class]];
 }
 
-- (void)wantedDecimalsCountChanged:(NSStepper *)stepper
+- (void)refreshTheTableView:(id)itam
 {
     [_tableView reloadData];
 }

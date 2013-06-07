@@ -49,6 +49,6 @@
     BOOL _mergeRequest;
 }
 
-- (IBAction)wantedDecimalsCountChanged:(NSStepper *)stepper;
+- (IBAction)refreshTheTableView:(id)itam;
 
 @end

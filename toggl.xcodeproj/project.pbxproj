@@ -18,6 +18,7 @@
 		1A2FA81B175F95F400797F15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A2FA81A175F95F400797F15 /* SystemConfiguration.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		204767971761D83900600E50 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 204767961761D83800600E50 /* CAAppDelegate.m */; };
+		2083B1D8176203F700BA6029 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2083B1D7176203F700BA6029 /* icon.icns */; };
 		32ED3E5E10420D1300B6E636 /* NSImage-NoodleExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5710420D1300B6E636 /* NSImage-NoodleExtensions.m */; };
 		32ED3E5F10420D1300B6E636 /* NoodleStickyRowTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5910420D1300B6E636 /* NoodleStickyRowTableView.m */; };
 		32ED3E6010420D1300B6E636 /* Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ED3E5B10420D1300B6E636 /* Controller.m */; };
@@ -50,6 +51,7 @@
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		204767951761D83800600E50 /* CAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAppDelegate.h; sourceTree = "<group>"; };
 		204767961761D83800600E50 /* CAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAAppDelegate.m; sourceTree = "<group>"; };
+		2083B1D7176203F700BA6029 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -169,6 +171,7 @@
 		29B97314FDCFA39411CA2CEA /* NoodleStickyRowTableViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				2083B1D7176203F700BA6029 /* icon.icns */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -259,6 +262,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				2083B1D8176203F700BA6029 /* icon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
